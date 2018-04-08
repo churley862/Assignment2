@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class TennisDatabase {
+    private TennisPlayersContainer players = new TennisPlayersContainer();
+    private TennisMatchesContainer matches = new TennisMatchesContainer();
     public TennisPlayer searchTennisPlayer(String id){
         return null;
     }
@@ -22,18 +24,13 @@ public class TennisDatabase {
         Scanner sc = new Scanner(s).useDelimiter("/");
         String lineType = sc.next();
         if(lineType.equalsIgnoreCase("Player")){
-            addPlayer(new TennisPlayer(sc.next(),sc.next(),sc.next(),sc.next(),sc.next()));
+            players.addPlayer(new TennisPlayer(sc.next(),sc.next(),sc.next(),sc.next(),sc.next()));
         }else if (lineType.equalsIgnoreCase("Match")){
-            addMatch(new TennisMatch(sc.next(),sc.next(),sc.next(),sc.next(),sc.next()));
+            matches.addMatch(new TennisMatch(sc.next(),sc.next(),sc.next(),sc.next(),sc.next()));
         }
 
     }
 
-    private void addPlayer(TennisPlayer tennisPlayer) {
-        tennisPlayer.print();
-    }
 
-    private void addMatch(TennisMatch tennisMatch) {
-        tennisMatch.print();
-    }
+
 }
