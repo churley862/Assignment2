@@ -22,27 +22,18 @@ public class TennisDatabase {
         Scanner sc = new Scanner(s).useDelimiter("/");
         String lineType = sc.next();
         if(lineType.equalsIgnoreCase("Player")){
-            addPlayer(sc.next(),sc.next(),sc.next(),sc.next(),sc.next());
+            addPlayer(new TennisPlayer(sc.next(),sc.next(),sc.next(),sc.next(),sc.next()));
         }else if (lineType.equalsIgnoreCase("Match")){
-            addMatch(sc.next(),sc.next(),sc.next(),sc.next(),sc.next());
+            addMatch(new TennisMatch(sc.next(),sc.next(),sc.next(),sc.next(),sc.next()));
         }
 
     }
 
-    private void addMatch(String player1, String player2, String date, String title, String scores) {
-        System.out.println("player1 " + player1);
-        System.out.println("player2 " +player2);
-        System.out.println("date " + date);
-        System.out.println("title " + title);
-        System.out.println("scores " + scores);
+    private void addPlayer(TennisPlayer tennisPlayer) {
+        tennisPlayer.print();
     }
 
-    private void addPlayer(String id, String fName, String lName, String year, String country) {
-        System.out.println("id " + id);
-        System.out.println("first name " + fName);
-        System.out.println("last name " + lName);
-        System.out.println("year " + year);
-        System.out.println("country" + country);
+    private void addMatch(TennisMatch tennisMatch) {
+        tennisMatch.print();
     }
-
 }
