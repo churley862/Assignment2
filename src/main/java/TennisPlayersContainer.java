@@ -1,5 +1,11 @@
 public class TennisPlayersContainer {
     public void addPlayer(TennisPlayer tennisPlayer) {
-        tennisPlayer.print();
+        //1
+        // tennisPlayer.print();
+        //tennisPlayer.addToLinkedList();
+    }
+
+    public void print() {
+        //tennisPlayer.print();
     }
 }

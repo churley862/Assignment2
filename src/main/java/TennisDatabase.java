@@ -18,19 +18,31 @@ public class TennisDatabase {
         while (sc.hasNextLine()) {
             parseLine(sc.nextLine());
         }
+        //
+        // matches.printAll();
     }
-
-    private void parseLine(String s) {
+// TODO check for bad data lines
+    public void parseLine(String s) {
         Scanner sc = new Scanner(s).useDelimiter("/");
         String lineType = sc.next();
         if(lineType.equalsIgnoreCase("Player")){
             players.addPlayer(new TennisPlayer(sc.next(),sc.next(),sc.next(),sc.next(),sc.next()));
-        }else if (lineType.equalsIgnoreCase("Match")){
+        }
+        else if (lineType.equalsIgnoreCase("Match")){
             matches.addMatch(new TennisMatch(sc.next(),sc.next(),sc.next(),sc.next(),sc.next()));
+        }else
+        {
+            System.out.println("The inputed data "+ s + " is invalid");
         }
 
     }
 
 
+    public void printTennisPlayers() {
+        players.print();
+    }
 
+    public void printTennisMatches() {
+        matches.printAll();
+    }
 }

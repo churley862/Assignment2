@@ -1,7 +1,7 @@
 public class TennisMatch {
-    public void print(){
+    public void print() {
         System.out.println("player1 " + player1);
-        System.out.println("player2 " +player2);
+        System.out.println("player2 " + player2);
         System.out.println("date " + date);
         System.out.println("title " + title);
         System.out.println("scores " + scores);
