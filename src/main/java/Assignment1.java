@@ -1,4 +1,6 @@
 
+import TennisDatabase.TennisDatabase;
+
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -34,7 +36,7 @@ public class Assignment1 {
             switch(input){
                 case "1":{
                     System.out.println("All players:");
-                    tennisDatabase.printTennisPlayers();
+                    tennisDatabase.printAllPlayers();
                     break;
                 }
                 case "2":{
@@ -43,7 +45,7 @@ public class Assignment1 {
                 }
                 case "3":{
                     System.out.println("All Tennis matches: ");
-                    tennisDatabase.printTennisMatches();
+                    tennisDatabase.printAllMatches();
                     break;
                 }
                 case "4":{

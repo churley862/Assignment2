@@ -1,13 +1,12 @@
-public class TennisMatchesContainer {
+package TennisDatabase;
+
+public class TennisMatchesContainer implements TennisMatchesContainerInterface {
     private final int INITIALSIZE = 2;
     private int matchCount = 0;
-    public void printAll(){
-        for(int i =0; i< matchCount;i++){
-            matches[i].print();
-        }
-    }
     private TennisMatch[] matches = new TennisMatch[INITIALSIZE];
-    public void addMatch(TennisMatch tennisMatch) {
+
+    @Override
+    public void insertMatch(TennisMatch tennisMatch) throws TennisDatabaseRuntimeException {
 
         if (matchCount >= matches.length) {
             TennisMatch[] newMatches = new TennisMatch[matches.length * 2];
@@ -17,8 +16,14 @@ public class TennisMatchesContainer {
             matches = newMatches;
         }
 //TODO change where the insert occurs
-            matches[matchCount] = tennisMatch;
+        matches[matchCount] = tennisMatch;
         matchCount++;
     }
 
+    @Override
+    public void printAllMatches() throws TennisDatabaseRuntimeException {
+        for(int i =0; i< matchCount;i++){
+            matches[i].print();
+        }
+    }
 }

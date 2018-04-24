@@ -1,3 +1,5 @@
+package TennisDatabase;
+
 public class TennisPlayer {
     public void print(){
         System.out.println("id " + id);
@@ -12,10 +14,10 @@ public class TennisPlayer {
     private String id;
     private String fName;
     private String lName;
-    private String year;
+    private int year;
     private String country;
 
-    public TennisPlayer(String id,String fName, String lName, String year, String country){
+    public TennisPlayer(String id,String fName, String lName, int year, String country){
         this.id = id;
         this.fName = fName;
         this.lName = lName;
