@@ -15,7 +15,7 @@ public class TennisMatchesContainer implements TennisMatchesContainerInterface {
             }
             matches = newMatches;
         }
-//TODO change where the insert occurs
+//TODO change to sort upon insert
         matches[matchCount] = tennisMatch;
         matchCount++;
     }

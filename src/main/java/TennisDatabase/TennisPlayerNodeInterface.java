@@ -8,12 +8,17 @@ interface TennisPlayerNodeInterface {
    
    // Accessors (getters).
    public TennisPlayer getPlayer();
-   public TennisPlayerNode getPrev();
-   public TennisPlayerNode getNext();
+
+   // return values changed to interface, to avoid tying
+   // to a single class
+   public TennisPlayerNodeInterface getPrev();
+   public TennisPlayerNodeInterface getNext();
    
    // Modifiers (setters).
-   public void setPrev( TennisPlayerNode p );
-   public void setNext( TennisPlayerNode n );
+   // parameter values changed to interface, to avoid tying
+   // to a single class
+   public void setPrev( TennisPlayerNodeInterface p );
+   public void setNext( TennisPlayerNodeInterface n );
    
    // Desc.: Insert a TennisMatch object (reference) into this node.
    // Input: A TennisMatch object (reference).

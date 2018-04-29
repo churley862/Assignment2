@@ -20,20 +20,26 @@ public class TennisDatabase implements TennisDatabaseInterface {
         // matches.printAll();
     }
 // TODO check for bad data lines
-    public void parseLine(String s) {
-        Scanner sc = new Scanner(s).useDelimiter("/");
-        String lineType = sc.next();
-        if(lineType.equalsIgnoreCase("Player")){
-            players.addPlayer(new TennisPlayer(sc.next(),sc.next(),sc.next(),sc.nextInt(),sc.next()));
-        }
-        else if (lineType.equalsIgnoreCase("Match")){
-            matches.insertMatch(new TennisMatch(sc.next(),sc.next(),sc.next(),sc.next(),sc.next()));
-        }else
-        {
-            System.out.println("The inputed data"+ s + "is invalid");
-        }
-
+public void parseLine(String s) {
+    Scanner sc = new Scanner(s).useDelimiter("/");
+    String lineType = sc.next();
+    if (lineType.equalsIgnoreCase("Player")) {
+        players.insertPlayer(new TennisPlayer(sc.next(), sc.next(), sc.next(), sc.nextInt(), sc.next()));
+    } else if (lineType.equalsIgnoreCase("Match")) {
+        String player1 = sc.next();
+        String player2 = sc.next();
+        int date = sc.nextInt();
+        int year = date / 10000;
+        int month = (date - (year * 10000)) / 100;
+        int day = date % 100;
+        String tourn = sc.next();
+        String scores = sc.next();
+        matches.insertMatch(new TennisMatch(player1, player2, year, month, day, tourn, scores));
+    } else {
+        System.out.println("The inputed data" + s + "is invalid");
     }
+
+}
 
 
     @Override

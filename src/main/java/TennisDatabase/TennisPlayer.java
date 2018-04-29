@@ -1,6 +1,6 @@
 package TennisDatabase;
 
-public class TennisPlayer {
+public class TennisPlayer  implements TennisPlayerInterface {
     public void print(){
         System.out.println("id " + id);
         System.out.println("first name " + fName);
@@ -12,12 +12,35 @@ public class TennisPlayer {
 
     }
     private String id;
+
+    public String getFirstName() {
+        return fName;
+    }
+
+    public String getLastName() {
+        return lName;
+    }
+
+    public int getBirthYear() {
+        return year;
+    }
+
+    @Override
+    public String getCountry() {
+        return country;
+    }
+
     private String fName;
     private String lName;
     private int year;
     private String country;
 
-    public TennisPlayer(String id,String fName, String lName, int year, String country){
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    public TennisPlayer(String id, String fName, String lName, int year, String country){
         this.id = id;
         this.fName = fName;
         this.lName = lName;
@@ -26,4 +49,8 @@ public class TennisPlayer {
     }
 
 
+    @Override
+    public int compareTo(TennisPlayer o) {
+        return 0;
+    }
 }
