@@ -44,7 +44,7 @@ public void parseLine(String s) {
 
     @Override
     public void printAllPlayers() throws TennisDatabaseRuntimeException {
-        players.print();
+        players.printAllPlayers();
     }
 
     @Override

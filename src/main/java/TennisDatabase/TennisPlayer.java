@@ -25,7 +25,6 @@ public class TennisPlayer  implements TennisPlayerInterface {
         return year;
     }
 
-    @Override
     public String getCountry() {
         return country;
     }
@@ -35,7 +34,6 @@ public class TennisPlayer  implements TennisPlayerInterface {
     private int year;
     private String country;
 
-    @Override
     public String getId() {
         return id;
     }
@@ -49,7 +47,6 @@ public class TennisPlayer  implements TennisPlayerInterface {
     }
 
 
-    @Override
     public int compareTo(TennisPlayer o) {
         return 0;
     }
