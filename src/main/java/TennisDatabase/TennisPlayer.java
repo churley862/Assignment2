@@ -6,7 +6,7 @@ public class TennisPlayer  implements TennisPlayerInterface {
         System.out.println("first name " + fName);
         System.out.println("last name " + lName);
         System.out.println("year " + year);
-        System.out.println("country" + country);
+        System.out.println("country " + country);
     }
     public void getWinLossRecord(){
 
@@ -21,9 +21,7 @@ public class TennisPlayer  implements TennisPlayerInterface {
         return lName;
     }
 
-    public int getBirthYear() {
-        return year;
-    }
+    public int getBirthYear() { return year; }
 
     @Override
     public String getCountry() {
@@ -49,8 +47,9 @@ public class TennisPlayer  implements TennisPlayerInterface {
     }
 
 
+
     @Override
     public int compareTo(TennisPlayer o) {
-        return 0;
+        return id.compareTo(o.id);
     }
 }

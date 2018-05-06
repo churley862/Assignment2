@@ -41,9 +41,7 @@ public class TennisMatch implements TennisMatchInterface {
 
     @Override
     public int getWinner() {
-        // TODO implement recursive match winner function that sets the winner
         return recursiveGetWinner();
-
     }
 
     public void print() {
@@ -78,8 +76,20 @@ public class TennisMatch implements TennisMatchInterface {
         this.scores = scores;
     }
 
+    private int dateAsInt() {
+        return (year *10000) + (month * 100) + day;
+    }
+
     public int compareTo(TennisMatch o) {
-        return 0;
+        // arbitrary value to calculate date is older
+        int dateVal = o.dateAsInt();
+        int newDateVal = dateAsInt();
+        if (dateVal > newDateVal)
+        { return -1; }
+        else if (dateVal == newDateVal)
+        { return 0; }
+        else
+        { return 1; }
     }
 
     public int recursiveGetWinner() {

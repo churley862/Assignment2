@@ -3,12 +3,14 @@ package TennisDatabase;
 public class TennisPlayerNode implements TennisPlayerNodeInterface {
     private TennisPlayer player;
     private TennisPlayerNodeInterface next, prev;
+    private TennisMatchesList list;
 
     public TennisPlayerNode(TennisPlayer player) {
         this.player = player;
         next = null;
         prev = null;
     }
+
 
     @Override
     public TennisPlayer getPlayer() {
@@ -27,10 +29,12 @@ public class TennisPlayerNode implements TennisPlayerNodeInterface {
 
     @Override
     public void printMatches() throws TennisDatabaseRuntimeException {
+        list.printMatches();
     }
 
     @Override
     public void insertMatch(TennisMatch m) throws TennisDatabaseRuntimeException {
+        list.insertMatch(m);
     }
 
     @Override

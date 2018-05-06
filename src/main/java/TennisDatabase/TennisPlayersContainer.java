@@ -1,7 +1,6 @@
 package TennisDatabase;
 
 public class TennisPlayersContainer implements TennisPlayersContainerInterface {
-//Todo impliment linked list sorting on insert
     TennisPlayerNodeInterface head;
     TennisPlayerNodeInterface tail;
 
@@ -37,10 +36,10 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
                 tail = node;
             } else {
                 node.setNext(insert_point);
-                node.getNext().setPrev(node);
                 node.setPrev(insert_point.getPrev());
+                node.getNext().setPrev(node);
 
-                if (insert_point.getPrev() == null) {
+                if (node.getPrev() == null) {
                     head = node;
                 } else {
                     node.getPrev().setNext(node);
@@ -51,7 +50,14 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
 
     @Override
     public void insertMatch(TennisMatch match) throws TennisDatabaseRuntimeException {
+        //TennisPlayerNode list = new TennisPlayerNode();
+        //list.insertMatch()
 
+        //search for the node storing player 1 and insert match on their node list
+
+        //If the node does not exist, create a dummy player
+
+        // Now that we are sure that the node exists we can insert the match
     }
 
     @Override
@@ -66,6 +72,18 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
 
     @Override
     public void printMatchesOfPlayer(String playerId) throws TennisDatabaseRuntimeException {
+        getPlayerById(playerId).printMatches();
+    }
 
+    public TennisPlayerNodeInterface getPlayerById(String id){
+        // While the player ID is not our input id player = player.getNext()
+        TennisPlayerNodeInterface node = head;
+
+        while (node != null) {
+            if(node.getPlayer().getId() == id)
+                return node;
+            node = node.getNext();
+        }
+        return null;
     }
 }
