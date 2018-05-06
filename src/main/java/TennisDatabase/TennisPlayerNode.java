@@ -7,6 +7,8 @@ public class TennisPlayerNode implements TennisPlayerNodeInterface {
 
     public TennisPlayerNode(TennisPlayer player) {
         this.player = player;
+        list = new TennisMatchesList();
+
         next = null;
         prev = null;
     }
@@ -35,6 +37,11 @@ public class TennisPlayerNode implements TennisPlayerNodeInterface {
     @Override
     public void insertMatch(TennisMatch m) throws TennisDatabaseRuntimeException {
         list.insertMatch(m);
+        if (m.getWinnerId().equals(player.getId())) {
+            player.addWin();
+        } else {
+            player.addLoss();
+        }
     }
 
     @Override
@@ -46,4 +53,5 @@ public class TennisPlayerNode implements TennisPlayerNodeInterface {
     public void setPrev(TennisPlayerNodeInterface p) {
         prev = p;
     }
+
 }

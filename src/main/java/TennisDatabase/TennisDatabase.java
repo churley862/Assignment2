@@ -62,6 +62,10 @@ public void parseLine(String s) {
 
     @Override
     public void insertMatch(String idPlayer1, String idPlayer2, int year, int month, int day, String tournament, String score) throws TennisDatabaseRuntimeException {
-        matches.insertMatch(new TennisMatch(idPlayer1, idPlayer2, year, month, day, tournament, score));
+        TennisMatch match = new TennisMatch(idPlayer1, idPlayer2, year, month, day, tournament, score);
+        matches.insertMatch(match);
+        players.insertMatch(match);
+
+
     }
 }

@@ -63,6 +63,7 @@ public class Assignment1 {
                 }
                 case "2":{
                     System.out.println("All Tennis matches of a player:");
+                    tennisDatabase.printMatchesOfPlayer(sc.nextLine());
                     break;
                 }
                 case "3":{

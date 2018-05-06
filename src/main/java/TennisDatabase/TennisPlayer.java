@@ -7,8 +7,10 @@ public class TennisPlayer  implements TennisPlayerInterface {
         System.out.println("last name " + lName);
         System.out.println("year " + year);
         System.out.println("country " + country);
+        System.out.println(getWinLossRecord());
     }
-    public void getWinLossRecord(){
+    public String getWinLossRecord(){
+        return "Wins: " + wins + " Losses: " + losses ;
 
     }
     private String id;
@@ -32,6 +34,8 @@ public class TennisPlayer  implements TennisPlayerInterface {
     private String lName;
     private int year;
     private String country;
+    private int wins =0;
+    private int losses = 0;
 
     @Override
     public String getId() {
@@ -46,10 +50,30 @@ public class TennisPlayer  implements TennisPlayerInterface {
         this.country = country;
     }
 
+    public void addWin() {
+        wins += 1;
+    }
+
+    public void addLoss() {
+        losses += 1;
+    }
+
+    public TennisPlayer(String id){
+        // Dummy player
+        this.id = id;
+    }
+
 
 
     @Override
     public int compareTo(TennisPlayer o) {
         return id.compareTo(o.id);
+    }
+
+    public void updatePlayer(TennisPlayer player) {
+        this.fName = player.fName;
+        this.lName = player.lName;
+        this.year = player.year;
+        this.country = player.country;
     }
 }

@@ -44,18 +44,10 @@ public class TennisMatch implements TennisMatchInterface {
         return recursiveGetWinner();
     }
 
-    public void print() {
-        System.out.println("player1 " + player1);
-        System.out.println("player2 " + player2);
-        System.out.println("date: " + month + "/" + day + "/" + year);
-        System.out.println("event " + event);
-        System.out.println("scores " + scores);
-        if (getWinner() == 1) {
-            System.out.println("player 1 won the match");
-        } else {
-            System.out.println("player 2 won the match");
 
-        }
+    public void print(){
+        System.out.println("" + year + "/" + month + "/" + day + " " + player1 + "-" + player2 +
+        " "+ event + " " + scores);
     }
 
     private String player1;
@@ -110,6 +102,15 @@ public class TennisMatch implements TennisMatchInterface {
         } else {
             if (win == 0) return -1;
             return (win > 0) ? 1 : 2;
+        }
+    }
+
+    public String getWinnerId() {
+        if (getWinner() == 1) {
+            return player1;
+        } else {
+            return player2;
+
         }
     }
 }
