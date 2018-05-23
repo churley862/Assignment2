@@ -1,40 +1,39 @@
 package TennisDatabase;
 
-public class TennisPlayerNode implements TennisPlayerNodeInterface {
+public class TennisPlayerNode  {
     private TennisPlayer player;
-    private TennisPlayerNodeInterface next, prev;
+    private TennisPlayerNode left,right;
     private TennisMatchesList list;
 
     public TennisPlayerNode(TennisPlayer player) {
         this.player = player;
         list = new TennisMatchesList();
 
-        next = null;
-        prev = null;
+        left = null;
+        right = null;
     }
 
 
-    @Override
+
     public TennisPlayer getPlayer() {
         return player;
     }
 
-    @Override
-    public TennisPlayerNodeInterface getPrev() {
-        return prev;
+
+    public TennisPlayerNode getLeft() {
+        return left;
     }
 
-    @Override
-    public TennisPlayerNodeInterface getNext() {
-        return next;
+    public TennisPlayerNode getRight() {
+        return right;
     }
 
-    @Override
+
     public void printMatches() throws TennisDatabaseRuntimeException {
         list.printMatches();
     }
 
-    @Override
+
     public void insertMatch(TennisMatch m) throws TennisDatabaseRuntimeException {
         list.insertMatch(m);
         if (m.getWinnerId().equals(player.getId())) {
@@ -44,14 +43,10 @@ public class TennisPlayerNode implements TennisPlayerNodeInterface {
         }
     }
 
-    @Override
-    public void setNext(TennisPlayerNodeInterface n) {
-        next = n;
+    public void setLeft(TennisPlayerNode n) { left = n;
     }
 
-    @Override
-    public void setPrev(TennisPlayerNodeInterface p) {
-        prev = p;
+    public void setRight(TennisPlayerNode n) { right = n;
     }
 
 }

@@ -1,61 +1,47 @@
 package TennisDatabase;
 
 public class TennisPlayersContainer implements TennisPlayersContainerInterface {
-    TennisPlayerNodeInterface head;
+    TennisPlayerNode root;
 
     public TennisPlayersContainer() {
-        head = null;
+        root = null;
     }
 
     @Override
     public void insertPlayer(TennisPlayer player) throws TennisDatabaseRuntimeException {
-        if (head == null) {
+        if (root == null) {
             insertFirstNode(player);
         } else {
-            TennisPlayerNodeInterface insert_point = head;
-
-            // find correct insert point
-            while (insert_point.getPlayer().compareTo(player) < 0) {
-                insert_point = insert_point.getNext();
-                if (insert_point == head) break;
-            }
-
-            if (insert_point.getPlayer().compareTo(player) == 0) {
-                insert_point.getPlayer().updatePlayer(player);
+            TennisPlayerNode insert_point = findInsertNode(root, player);
+            if (insert_point.getPlayer().compareTo(player) < 0) {
+                insert_point.setLeft(new TennisPlayerNode(player));
             } else {
-                insertBefore(player, insert_point);
+                insert_point.setRight(new TennisPlayerNode(player));
             }
+        }
+    }
+
+    private TennisPlayerNode findInsertNode(TennisPlayerNode node, TennisPlayer player) {
+        if(node.getPlayer().compareTo(player) < 0) {
+            if (node.getLeft() == null) return node;
+            return findInsertNode(node.getLeft(), player);
+        }
+        else{
+            if (node.getRight() == null) return node;
+            return findInsertNode(node.getRight(), player);
         }
     }
 
     private void insertFirstNode(TennisPlayer player) {
-        if (head != null) {
-            throw new RuntimeException("list already populated, cannot call insertFirstNode");
+        if (root != null) {
+            throw new RuntimeException("tree already populated, cannot call insertFirstNode");
         }
 
-        TennisPlayerNodeInterface node = new TennisPlayerNode(player);
-        head = node;
-        node.setNext(node);
-        node.setPrev(node);
+        TennisPlayerNode node = new TennisPlayerNode(player);
+        root = node;
     }
 
-    public void insertBefore(TennisPlayer player, TennisPlayerNodeInterface insert_point) {
 
-        if (head == null) {
-            insertFirstNode(player);
-        } else {
-            TennisPlayerNodeInterface node = new TennisPlayerNode(player);
-            node.setNext(insert_point);
-            node.setPrev(insert_point.getPrev());
-            insert_point.setPrev(node);
-            node.getPrev().setNext(node);
-
-            // handle special case inserting at front of list
-            if (head == insert_point && insert_point.getPlayer().compareTo(player) > 0) {
-                head = node;
-            }
-        }
-    }
 
     // TODO dummy player stuff
     @Override
@@ -63,7 +49,7 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
        // check for both players in our list
         // if the player exists then
 
-        TennisPlayerNodeInterface node = getPlayerById(match.getPlayer1Id());
+        TennisPlayerNode node = getPlayerById(match.getPlayer1Id());
         if (node == null) {
             TennisPlayer player = new TennisPlayer(match.getPlayer1Id());
             insertPlayer(player);
@@ -82,14 +68,15 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
 
     @Override
     public void printAllPlayers() throws TennisDatabaseRuntimeException {
-        TennisPlayerNodeInterface node = head;
+        printAllPlayers(root);
+    }
 
-        if (node != null) {
-            do {
-                node.getPlayer().print();
-                node = node.getNext();
-            } while (node != head);
-        }
+    private void printAllPlayers(TennisPlayerNode node) {
+        if (node == null) {return;}
+
+        printAllPlayers(node.getLeft());
+        node.getPlayer().print();
+        printAllPlayers(node.getRight());
     }
 
     @Override
@@ -102,17 +89,17 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
 
     }
 
-    public TennisPlayerNodeInterface getPlayerById(String id){
-        // While the player ID is not our input id player = player.getNext()
-        TennisPlayerNodeInterface node = head;
+    public TennisPlayerNode getPlayerById(String id){
+        return getPlayerById(root, id);
 
-        if (node != null) {
-            do {
-                if (node.getPlayer().getId().equals(id))
-                    return node;
-                node = node.getNext();
-            } while (node != head);
-        }
-        return null;
+
+    }
+
+    private TennisPlayerNode getPlayerById(TennisPlayerNode node, String id) {
+        if (node == null){return null;}
+        int comp = node.getPlayer().getId().compareTo(id);
+        if (comp == 0) return node;
+        if (comp < 0) return getPlayerById(node.getLeft(), id);
+        return getPlayerById(node.getRight(), id);
     }
 }

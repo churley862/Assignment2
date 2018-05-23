@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayersContainer.java" line="97" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayersContainer.java" line="84" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3435f754-bc4f-491d-8817-2fe08ffb95a1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/assignment2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment1.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/assignment2.ipr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment1.iws" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment1_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/assignment2_main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment1_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/assignment2_test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Assignment1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Assignment1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Assignment2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisMatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisMatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisMatchesContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisMatchesContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayerNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayerNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayersContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayersContainer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -50,20 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TennisPlayersContainer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TennisPlayersContainer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayersContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="69" selection-start-line="67" selection-end-line="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TennisMatchInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/TennisDatabase/TennisMatchInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+            <state relative-caret-position="735">
+              <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -104,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Assignment2.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Assignment2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Assignment2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="80" column="43" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+            <state relative-caret-position="-57">
+              <caret line="23" column="62" lean-forward="true" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -134,6 +115,15 @@
                 <element signature="imports" expanded="true" />
                 <element signature="e#282#295#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TennisPlayerNode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayerNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -485,8 +475,6 @@
         <option value="$PROJECT_DIR$/src/main/java/TennisMatchesContainer.java" />
         <option value="$PROJECT_DIR$/src/main/java/Assignment1.java" />
         <option value="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayerNodeInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayersContainer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayerNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisMatchesNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisMatchesList.java" />
@@ -494,6 +482,8 @@
         <option value="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisMatchesContainer.java" />
         <option value="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/java/Assignment2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayerNode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayersContainer.java" />
       </list>
     </option>
   </component>
@@ -661,12 +651,12 @@
       <updated>1523134210558</updated>
       <workItem from="1523134213138" duration="31626000" />
       <workItem from="1525059980103" duration="42624000" />
-      <workItem from="1527011882598" duration="5756000" />
+      <workItem from="1527011882598" duration="8285000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80006000" />
+    <option name="totallyTimeSpent" value="82535000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="44" y="23" width="1183" height="730" extended-state="0" />
@@ -941,13 +931,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayerNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="37" column="82" selection-start-line="37" selection-start-column="82" selection-end-line="37" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/TennisDatabase/TennisMatchesList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -1000,13 +983,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayersContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="69" selection-start-line="67" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/TennisDatabase/TennisMatchesContainerInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1039,11 +1015,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Assignment2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="80" column="43" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+        <state relative-caret-position="-57">
+          <caret line="23" column="62" lean-forward="true" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayerNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TennisDatabase/TennisPlayersContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
         </state>
       </provider>
     </entry>
