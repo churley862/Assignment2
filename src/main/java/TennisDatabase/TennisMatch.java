@@ -5,13 +5,13 @@ import java.util.Scanner;
 
 public class TennisMatch implements TennisMatchInterface {
     @Override
-    public String getPlayer1Id() {
-        return player1;
+    public  String getPlayer1Id() {
+        return player1.getId();
     }
 
     @Override
     public String getPlayer2Id() {
-        return player2;
+        return player2.getId();
     }
 
     @Override
@@ -46,19 +46,19 @@ public class TennisMatch implements TennisMatchInterface {
 
 
     public void print(){
-        System.out.println("" + year + "/" + month + "/" + day + " " + player1 + "-" + player2 +
+        System.out.println("" + year + "/" + month + "/" + day + " " + player1.getId() + "-" + player2.getId() +
         " "+ event + " " + scores);
     }
 
-    private String player1;
-    private String player2;
+    private TennisPlayer player1;
+    private TennisPlayer player2;
     private int day;
     private int month;
     private int year;
     private String event;
     private String scores;
 
-    TennisMatch(String player1, String player2, int year, int month, int day, String event, String scores) {
+    TennisMatch(TennisPlayer player1, TennisPlayer player2, int year, int month, int day, String event, String scores) {
         this.player1 = player1;
         this.player2 = player2;
         this.day = day;
@@ -107,9 +107,9 @@ public class TennisMatch implements TennisMatchInterface {
 
     public String getWinnerId() {
         if (getWinner() == 1) {
-            return player1;
+            return player1.getId();
         } else {
-            return player2;
+            return player2.getId();
 
         }
     }

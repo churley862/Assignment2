@@ -10,6 +10,10 @@ public class TennisDatabase implements TennisDatabaseInterface {
     public TennisPlayer searchTennisPlayer(String id){
         return null;
     }
+    public void reset(){
+        players = new TennisPlayersContainer();
+        matches = new TennisMatchesContainer();
+    }
     public void loadFromFile(String fName) throws FileNotFoundException {
 
         Scanner sc = new Scanner(new File(fName));
@@ -62,7 +66,19 @@ public void parseLine(String s) {
 
     @Override
     public void insertMatch(String idPlayer1, String idPlayer2, int year, int month, int day, String tournament, String score) throws TennisDatabaseRuntimeException {
-        TennisMatch match = new TennisMatch(idPlayer1, idPlayer2, year, month, day, tournament, score);
+        TennisPlayerNodeInterface player1 = players.getPlayerById(idPlayer1);
+        if (player1 == null) {
+            TennisPlayer player = new TennisPlayer(idPlayer1);
+            players.insertPlayer(player);
+        }
+        TennisPlayerNodeInterface player2 = players.getPlayerById(idPlayer2);
+        if (player2 == null) {
+            TennisPlayer player = new TennisPlayer(idPlayer2);
+            players.insertPlayer(player);
+        }
+
+        TennisMatch match = new TennisMatch(players.getPlayerById(idPlayer1).getPlayer(),
+                players.getPlayerById(idPlayer2).getPlayer(), year, month, day, tournament, score);
         matches.insertMatch(match);
         players.insertMatch(match);
 

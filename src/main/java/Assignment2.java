@@ -11,7 +11,7 @@ import TennisDatabase.TennisDatabase;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Assignment1 {
+public class Assignment2 {
     private static TennisDatabase tennisDatabase;
 
     //printMenu() method to print the menu, I just thought it was cleaner
@@ -22,6 +22,7 @@ public class Assignment1 {
                 "2 --> Print all tennis matches of a player\n" +
                 "3 --> Print print all tennis matches\n"+
                 "4 --> Insert a new tennis match or player\n"+
+                "5 --> Reset the database\n"+
                 "9 --> Exit\n" +
                 "Your choice? ");
     }
@@ -74,6 +75,10 @@ public class Assignment1 {
                 case "4":{
                     System.out.println("Insert new Tennis player or match: ");
                     tennisDatabase.parseLine(sc.nextLine());
+                    break;
+                }
+                case "5":{
+                    tennisDatabase.reset();
                     break;
                 }
                 case "9":{

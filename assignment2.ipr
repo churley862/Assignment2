@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="assignment1_main" target="1.8" />
-      <module name="assignment1_test" target="1.8" />
+      <module name="assignment2_main" target="1.8" />
+      <module name="assignment2_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
@@ -150,9 +150,9 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/assignment1.iml" filepath="$PROJECT_DIR$/assignment1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/assignment1_main.iml" filepath="$PROJECT_DIR$/assignment1_main.iml" group="assignment1" />
-      <module fileurl="file://$PROJECT_DIR$/assignment1_test.iml" filepath="$PROJECT_DIR$/assignment1_test.iml" group="assignment1" />
+      <module fileurl="file://$PROJECT_DIR$/assignment2.iml" filepath="$PROJECT_DIR$/assignment2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/assignment2_main.iml" filepath="$PROJECT_DIR$/assignment2_main.iml" group="assignment1" />
+      <module fileurl="file://$PROJECT_DIR$/assignment2_test.iml" filepath="$PROJECT_DIR$/assignment2_test.iml" group="assignment1" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_9" default="true" project-jdk-name="9" project-jdk-type="JavaSDK">
