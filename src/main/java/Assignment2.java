@@ -23,13 +23,16 @@ public class Assignment2 {
                 "3 --> Print print all tennis matches\n"+
                 "4 --> Insert a new tennis match or player\n"+
                 "5 --> Reset the database\n"+
+                "6 --> Import a file \n" +
+                "7 --> Export a file \n"+
+                "8 --> Remove a player by ID\n"+
                 "9 --> Exit\n" +
                 "Your choice? ");
     }
     // The main method of my code, should have 1 command line input argument
     // this argument should contain the file name of the initial data for
     // the database
-    public static void main(String args[]){
+    public static void main(String args[]) throws FileNotFoundException {
         System.out.println("Welcome to the CS-102 Tennis Manager");
 
         //executing flag that shows the program status
@@ -81,6 +84,27 @@ public class Assignment2 {
                     tennisDatabase.reset();
                     break;
                 }
+                case "6":{
+                    System.out.println("Input a filename");
+                    try {
+                        tennisDatabase.loadFromFile(sc.nextLine());
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                }
+                case "7":{
+                    System.out.println("Input a filename for export");
+                    tennisDatabase.exportToFile(sc.nextLine());
+                    break;
+                }
+                case "8":{
+                    System.out.println("Input the player ID to be removed");
+
+                    tennisDatabase.removePlayer(tennisDatabase.searchTennisPlayer(sc.nextLine()));
+                    break;
+                }
+
                 case "9":{
                     executing = false;
                     System.out.println("Thanks for using the tennis database");

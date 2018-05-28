@@ -49,4 +49,7 @@ public class TennisPlayerNode  {
     public void setRight(TennisPlayerNode n) { right = n;
     }
 
+    public void setPlayer(TennisPlayer player) {
+        this.player = player;
+    }
 }

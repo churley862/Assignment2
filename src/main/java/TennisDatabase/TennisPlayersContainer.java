@@ -11,9 +11,12 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
     public void insertPlayer(TennisPlayer player) throws TennisDatabaseRuntimeException {
         if (root == null) {
             insertFirstNode(player);
-        } else {
+        }
+        else {
             TennisPlayerNode insert_point = findInsertNode(root, player);
-            if (insert_point.getPlayer().compareTo(player) < 0) {
+            if(insert_point.getPlayer().compareTo(player) == 0){
+                insert_point.getPlayer().updatePlayer(player);
+            } else if (insert_point.getPlayer().compareTo(player) < 0) {
                 insert_point.setLeft(new TennisPlayerNode(player));
             } else {
                 insert_point.setRight(new TennisPlayerNode(player));
@@ -22,7 +25,9 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
     }
 
     private TennisPlayerNode findInsertNode(TennisPlayerNode node, TennisPlayer player) {
-        if(node.getPlayer().compareTo(player) < 0) {
+        if(node.getPlayer().compareTo(player) == 0) {
+           return node;
+        }else if(node.getPlayer().compareTo(player) < 0){
             if (node.getLeft() == null) return node;
             return findInsertNode(node.getLeft(), player);
         }
@@ -102,4 +107,81 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
         if (comp < 0) return getPlayerById(node.getLeft(), id);
         return getPlayerById(node.getRight(), id);
     }
+
+    private TennisPlayerNode[] findNode(TennisPlayer p, TennisPlayerNode parent, TennisPlayerNode node) {
+        if (parent == null || node == null) {
+            TennisPlayerNode[] result = new TennisPlayerNode[2];
+            return result;
+        }
+        if (node.getPlayer().equals(p)){
+            TennisPlayerNode[] result = new TennisPlayerNode[2];
+            result[0] = parent;
+            result[1] = node;
+            return result;
+        }
+        if (node.getPlayer().compareTo(p) < 0)
+            return findNode(p, node, node.getLeft());
+        else
+            return findNode(p,node,node.getRight());
+    }
+
+    private TennisPlayerNode[] findNode(TennisPlayer p) {
+        if (root == null) {
+            TennisPlayerNode[] result = new TennisPlayerNode[2];
+            return result;
+        }
+
+        if (root.getPlayer().equals(p)) {
+            TennisPlayerNode[] result = new TennisPlayerNode[2];
+            result[1] = root;
+            return result;
+        }
+
+        if (root.getPlayer().compareTo(p) < 0)
+            return findNode(p, root, root.getLeft());
+        else
+            return findNode(p,root,root.getRight());
+    }
+
+    private void setParentPointer(TennisPlayerNode parent, TennisPlayerNode old, TennisPlayerNode next) {
+        if (parent.getLeft() == old) {
+            parent.setLeft(next);
+        } else {
+            parent.setRight(next);
+        }
+    }
+
+    private TennisPlayerNode findLowestNode(TennisPlayerNode node){
+        if(node.getLeft() == null){
+            return node;
+        }else{
+            return findLowestNode(node.getLeft());
+        }
+    }
+
+    public boolean removeNode(TennisPlayer p) {
+            TennisPlayerNode[] removePoint = findNode(p);
+            TennisPlayerNode parent = removePoint[0];
+            TennisPlayerNode node = removePoint[1];
+            if (node == null)
+                return false;
+            if (node.getLeft() == null && node.getRight() == null) {
+                if (parent == null) {
+                    root = null;
+                } else {
+                    setParentPointer(parent, node, null);
+                }
+                return true;
+            }
+            if (node.getLeft() == null) {
+                setParentPointer(parent, node, node.getRight());
+            } else if (node.getRight() == null) {
+                setParentPointer(parent, node, node.getLeft());
+            } else {
+                TennisPlayerNode lowest = findLowestNode(node.getLeft());
+                removeNode(lowest.getPlayer());
+                node.setPlayer(lowest.getPlayer());
+            }
+            return true;
+        }
 }

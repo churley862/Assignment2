@@ -8,7 +8,7 @@ public class TennisDatabase implements TennisDatabaseInterface {
     private TennisPlayersContainer players = new TennisPlayersContainer();
     private TennisMatchesContainer matches = new TennisMatchesContainer();
     public TennisPlayer searchTennisPlayer(String id){
-        return null;
+        return players.getPlayerById(id).getPlayer();
     }
     public void reset(){
         players = new TennisPlayersContainer();
@@ -83,5 +83,12 @@ public void parseLine(String s) {
         players.insertMatch(match);
 
 
+    }
+
+    public void exportToFile(String fileName) {
+
+    }
+    public void removePlayer(TennisPlayer player){
+        players.removeNode(player);
     }
 }
