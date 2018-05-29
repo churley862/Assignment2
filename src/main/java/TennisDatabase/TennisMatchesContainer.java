@@ -10,9 +10,12 @@ public class TennisMatchesContainer implements TennisMatchesContainerInterface {
     // Need to ask about self contained insert and sort
     @Override
     public void insertMatch(TennisMatch tennisMatch) throws TennisDatabaseRuntimeException {
-        matches.add(tennisMatch);
-        //Collections.sort(matches,(TennisMatch m1, TennisMatch m2) -> m1.compareTo(m2));
-    }
+        int insert_point = 0;
+        while (insert_point < matches.size() && matches.get(insert_point).compareTo(tennisMatch) > 0) {
+            insert_point++;
+        }
+        matches.add(insert_point,tennisMatch);
+      }
 
     @Override
     public void printAllMatches() throws TennisDatabaseRuntimeException {

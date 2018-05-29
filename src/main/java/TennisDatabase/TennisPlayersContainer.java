@@ -163,8 +163,10 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
             TennisPlayerNode[] removePoint = findNode(p);
             TennisPlayerNode parent = removePoint[0];
             TennisPlayerNode node = removePoint[1];
+
             if (node == null)
                 return false;
+
             if (node.getLeft() == null && node.getRight() == null) {
                 if (parent == null) {
                     root = null;
@@ -173,10 +175,19 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
                 }
                 return true;
             }
+
             if (node.getLeft() == null) {
-                setParentPointer(parent, node, node.getRight());
+                if (parent == null) {
+                    root = node.getRight();
+                } else {
+                    setParentPointer(parent, node, node.getRight());
+                }
             } else if (node.getRight() == null) {
-                setParentPointer(parent, node, node.getLeft());
+                if (parent == null) {
+                    root = node.getLeft();
+                } else {
+                    setParentPointer(parent, node, node.getLeft());
+                }
             } else {
                 TennisPlayerNode lowest = findLowestNode(node.getLeft());
                 removeNode(lowest.getPlayer());
