@@ -9,6 +9,11 @@ public class TennisPlayer  implements TennisPlayerInterface {
         System.out.println("country " + country);
         System.out.println(getWinLossRecord());
     }
+    public String toString(){
+        String player = "";
+        player = "PLAYER/" + getId() + "/" + getFirstName() + "/" + getLastName() + "/" + getBirthYear() + "/" + getCountry();
+        return player.toUpperCase();
+    }
     public String getWinLossRecord(){
         return "Wins: " + wins + " Losses: " + losses ;
 

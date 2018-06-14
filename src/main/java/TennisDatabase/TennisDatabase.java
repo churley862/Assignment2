@@ -1,7 +1,8 @@
 package TennisDatabase;
-
+import java.io.PrintWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
 public class TennisDatabase implements TennisDatabaseInterface {
@@ -85,8 +86,17 @@ public void parseLine(String s) {
 
     }
 
-    public void exportToFile(String fileName) {
-
+    public void exportToFile(String fileName) throws FileNotFoundException, UnsupportedEncodingException {
+        Scanner matchesScanner = new Scanner(matches.returnAllMatches());
+        Scanner playerScanner = new Scanner(players.returnAllPlayers());
+        PrintWriter writer = new PrintWriter(fileName, "UTF-8");
+        while (matchesScanner.hasNextLine()) {
+            writer.println(matchesScanner.nextLine());
+        }
+        while (playerScanner.hasNextLine()){
+            writer.println(playerScanner.nextLine());
+        }
+        writer.close();
     }
     public void removePlayer(TennisPlayer player){
         players.removeNode(player);

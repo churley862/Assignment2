@@ -23,4 +23,16 @@ public class TennisMatchesContainer implements TennisMatchesContainerInterface {
             match.print();
         }
     }
+
+    public String returnAllMatches() throws TennisDatabaseRuntimeException {
+        String allMatches ="";
+        for (TennisMatch match : matches) {
+            if (!allMatches.isEmpty()){
+                allMatches = allMatches + "\n" + match.toString();
+            }else{
+                allMatches = match.toString();
+            }
+        }
+        return allMatches;
+    }
 }

@@ -83,6 +83,22 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
         node.getPlayer().print();
         printAllPlayers(node.getRight());
     }
+    public String returnAllPlayers(){
+        String allPlayers = "";
+        return returnAllPlayers(root,allPlayers);
+    }
+    private String returnAllPlayers(TennisPlayerNode node, String allPlayers) {
+        if (node == null) {return allPlayers;}
+
+        returnAllPlayers(node.getLeft(),allPlayers);
+        if (allPlayers.isEmpty()) {
+            allPlayers = node.getPlayer().toString();
+        }else{
+            allPlayers =  allPlayers + "/n" + node.getPlayer().toString();
+        }
+        returnAllPlayers(node.getRight(),allPlayers);
+        return allPlayers;
+    }
 
     @Override
     public void printMatchesOfPlayer(String playerId) throws TennisDatabaseRuntimeException {
@@ -158,6 +174,9 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
             return findLowestNode(node.getLeft());
         }
     }
+    public String toString(TennisPlayerNode node){
+        return returnAllPlayers();
+    }
 
     public boolean removeNode(TennisPlayer p) {
             TennisPlayerNode[] removePoint = findNode(p);
@@ -195,4 +214,5 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
             }
             return true;
         }
+
 }

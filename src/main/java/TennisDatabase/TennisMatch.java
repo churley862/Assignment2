@@ -49,6 +49,12 @@ public class TennisMatch implements TennisMatchInterface {
         System.out.println("" + year + "/" + month + "/" + day + " " + player1.getId() + "-" + player2.getId() +
         " "+ event + " " + scores);
     }
+    public String toString(){
+        String match = "";
+        match = "MATCH" +"/"+ year + "/" + month + "/" + day + " " + player1.getId() + "-" + player2.getId() +
+                " "+ event + " " + scores;
+        return match.toUpperCase();
+    }
 
     private TennisPlayer player1;
     private TennisPlayer player2;
