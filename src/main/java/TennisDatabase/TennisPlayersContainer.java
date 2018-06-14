@@ -84,24 +84,15 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
         printAllPlayers(node.getRight());
     }
     public String toString(){
-        String allPlayers = "";
         return toString(root);
     }
+
     private String toString(TennisPlayerNode node) {
-        String allPlayers = "";
-        if (node == null) {return allPlayers;}
-        if (allPlayers.isEmpty()) {
-            allPlayers = node.getLeft().getPlayer().toString();
-        }else{
-            allPlayers += "\n" + node.getLeft().getPlayer().toString();
-        }
-        if (allPlayers.isEmpty()){
-            allPlayers = node.getRight().toString();
-        }else{
-            allPlayers += "\n" + node.getLeft().toString();
-        }
-        toString(node.getRight());
-        return allPlayers;
+        if (node == null) { return ""; }
+            String allPlayers = toString(node.getLeft());
+            allPlayers += node.getPlayer() + "\n";
+            allPlayers += toString(node.getRight());
+            return allPlayers;
     }
 
     @Override

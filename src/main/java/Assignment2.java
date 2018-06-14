@@ -7,18 +7,21 @@ tennisDatabase - is the instance of the tennis database class used for the major
 
 */
 import TennisDatabase.TennisDatabase;
-//import javafx.application.Application;
-//import javafx.event.ActionEvent;
-//import javafx.event.EventHandler;
-//import javafx.scene.Scene;
-//import javafx.scene.control.Button;
-//import javafx.scene.layout.StackPane;
-//import javafx.stage.Stage;
+import javafx.application.Application;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+import java.awt.desktop.AppForegroundListener;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
-public class Assignment2  {
+public class Assignment2 extends Application {
     private static TennisDatabase tennisDatabase;
 
     //printMenu() method to print the menu, I just thought it was cleaner
@@ -38,8 +41,8 @@ public class Assignment2  {
     }
         // The start method is the main entry point for all JavaFX applications.
         // Stage: The A JavaFX application defines the user interface container by means of a stage and a scene.
-        //        The JavaFX Stage class is the top-level JavaFX container.
-     /*   public void start( Stage primaryStage ) {
+        //        The JavaFX Stage class is the top-level JavaFX containe
+        @Override public void start(Stage primaryStage) {
             Button btn = new Button(); // Button control node.
             btn.setText( "Say 'Hello World'" ); // Button setup: button text.
 
@@ -58,13 +61,14 @@ public class Assignment2  {
             primaryStage.setTitle( "Hello World!" ); // Stage setup: window title.
             primaryStage.setScene(scene); // Stage setup: scene graph for the content.
             primaryStage.show(); // Show the window via the stage.
-        }*/
+        }
     // The main method of my code, should have 1 command line input argument
     // this argument should contain the file name of the initial data for
     // the database
-    public static void main(String args[]) throws FileNotFoundException, UnsupportedEncodingException {
-        //start();
-
+   // public static void main(String args[]) throws FileNotFoundException, UnsupportedEncodingException {
+     //   launch(args);
+   // }
+/*
         System.out.println("Welcome to the CS-102 Tennis Manager");
 
         //executing flag that shows the program status
@@ -148,7 +152,5 @@ public class Assignment2  {
                 }
 
             }
-        };
+        };*/
     }
-
-}
