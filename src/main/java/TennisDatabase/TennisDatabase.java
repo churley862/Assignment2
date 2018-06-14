@@ -88,7 +88,7 @@ public void parseLine(String s) {
 
     public void exportToFile(String fileName) throws FileNotFoundException, UnsupportedEncodingException {
         Scanner matchesScanner = new Scanner(matches.returnAllMatches());
-        Scanner playerScanner = new Scanner(players.returnAllPlayers());
+        Scanner playerScanner = new Scanner(players.toString());
         PrintWriter writer = new PrintWriter(fileName, "UTF-8");
         while (matchesScanner.hasNextLine()) {
             writer.println(matchesScanner.nextLine());

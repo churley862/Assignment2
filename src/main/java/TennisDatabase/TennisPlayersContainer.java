@@ -83,20 +83,24 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
         node.getPlayer().print();
         printAllPlayers(node.getRight());
     }
-    public String returnAllPlayers(){
+    public String toString(){
         String allPlayers = "";
-        return returnAllPlayers(root,allPlayers);
+        return toString(root);
     }
-    private String returnAllPlayers(TennisPlayerNode node, String allPlayers) {
+    private String toString(TennisPlayerNode node) {
+        String allPlayers = "";
         if (node == null) {return allPlayers;}
-
-        returnAllPlayers(node.getLeft(),allPlayers);
         if (allPlayers.isEmpty()) {
-            allPlayers = node.getPlayer().toString();
+            allPlayers = node.getLeft().getPlayer().toString();
         }else{
-            allPlayers =  allPlayers + "/n" + node.getPlayer().toString();
+            allPlayers += "\n" + node.getLeft().getPlayer().toString();
         }
-        returnAllPlayers(node.getRight(),allPlayers);
+        if (allPlayers.isEmpty()){
+            allPlayers = node.getRight().toString();
+        }else{
+            allPlayers += "\n" + node.getLeft().toString();
+        }
+        toString(node.getRight());
         return allPlayers;
     }
 
@@ -173,9 +177,6 @@ public class TennisPlayersContainer implements TennisPlayersContainerInterface {
         }else{
             return findLowestNode(node.getLeft());
         }
-    }
-    public String toString(TennisPlayerNode node){
-        return returnAllPlayers();
     }
 
     public boolean removeNode(TennisPlayer p) {

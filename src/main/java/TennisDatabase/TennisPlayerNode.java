@@ -52,4 +52,7 @@ public class TennisPlayerNode  {
     public void setPlayer(TennisPlayer player) {
         this.player = player;
     }
+    public String toString(){
+        return player.toString();
+    }
 }
